@@ -1,0 +1,75 @@
+package org.airtribe.PayFlow.entity;
+
+
+import jakarta.persistence.*;
+import java.math.BigDecimal;
+
+@Entity
+@Table(name = "user")
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    @Column(unique = true)
+    private String upiId;
+
+    private String phoneNumber;
+
+    private BigDecimal balance;
+
+    // Default constructor
+    public User() {}
+
+    // Constructor with fields
+    public User(String name, String upiId, String phoneNumber, BigDecimal balance) {
+        this.name = name;
+        this.upiId = upiId;
+        this.phoneNumber = phoneNumber;
+        this.balance = balance;
+    }
+
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUpiId() {
+        return upiId;
+    }
+
+    public void setUpiId(String upiId) {
+        this.upiId = upiId;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+}
